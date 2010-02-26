@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:tns="http://service.diomedestorage.com" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="DiomedeStorageSvc" targetNamespace="http://service.diomedestorage.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://service.diomedestorage.com/Imports">
+      <xsd:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd0" namespace="http://service.diomedestorage.com" />
+      <xsd:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd2" namespace="http://data.diomedestorage.com" />
+      <xsd:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RenameFileRequest">
+    <wsdl:part name="parameters" element="tns:RenameFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_RenameFile_OutputMessage" />
+  <wsdl:message name="DeleteFileRequest">
+    <wsdl:part name="parameters" element="tns:DeleteFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteFile_OutputMessage" />
+  <wsdl:message name="UndeleteFileRequest">
+    <wsdl:part name="parameters" element="tns:UndeleteFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_UndeleteFile_OutputMessage" />
+  <wsdl:message name="CreateFileMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:CreateFileMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileMetaDataResponse">
+    <wsdl:part name="parameters" element="tns:CreateFileMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetFileMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:SetFileMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_SetFileMetaData_OutputMessage" />
+  <wsdl:message name="DeleteFileMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:DeleteFileMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteFileMetaData_OutputMessage" />
+  <wsdl:message name="CreateMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:CreateMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateMetaDataResponse">
+    <wsdl:part name="parameters" element="tns:CreateMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFileMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:GetFileMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetFileMetaDataResponse">
+    <wsdl:part name="parameters" element="tns:GetFileMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:GetMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMetaDataResponse">
+    <wsdl:part name="parameters" element="tns:GetMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:EditMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_EditMetaData_OutputMessage" />
+  <wsdl:message name="DeleteMetaDataRequest">
+    <wsdl:part name="parameters" element="tns:DeleteMetaDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteMetaData_OutputMessage" />
+  <wsdl:message name="MoveFileToTierRequest">
+    <wsdl:part name="parameters" element="tns:MoveFileToTierRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_MoveFileToTier_OutputMessage" />
+  <wsdl:message name="ReplicateFileRequest">
+    <wsdl:part name="parameters" element="tns:ReplicateFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="ReplicateFileResponse">
+    <wsdl:part name="parameters" element="tns:ReplicateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UnreplicateFileRequest">
+    <wsdl:part name="parameters" element="tns:UnreplicateFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_UnreplicateFile_OutputMessage" />
+  <wsdl:message name="IDiomedeStorage_GetStorageTypes_InputMessage" />
+  <wsdl:message name="GetStorageTypesResponse">
+    <wsdl:part name="parameters" element="tns:GetStorageTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalFilesRequest">
+    <wsdl:part name="parameters" element="tns:GetPhysicalFilesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalFilesResponse">
+    <wsdl:part name="parameters" element="tns:GetPhysicalFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalFileRequest">
+    <wsdl:part name="parameters" element="tns:GetPhysicalFileRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhysicalFileResponse">
+    <wsdl:part name="parameters" element="tns:GetPhysicalFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchUploadLogRequest">
+    <wsdl:part name="parameters" element="tns:SearchUploadLogRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchUploadLogResponse">
+    <wsdl:part name="parameters" element="tns:SearchUploadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchDownloadLogRequest">
+    <wsdl:part name="parameters" element="tns:SearchDownloadLogRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchDownloadLogResponse">
+    <wsdl:part name="parameters" element="tns:SearchDownloadLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchLoginLogRequest">
+    <wsdl:part name="parameters" element="tns:SearchLoginLogRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchLoginLogResponse">
+    <wsdl:part name="parameters" element="tns:SearchLoginLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_GetAllProducts_InputMessage" />
+  <wsdl:message name="GetAllProductsResponse">
+    <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseProductRequest">
+    <wsdl:part name="parameters" element="tns:PurchaseProductRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_PurchaseProduct_OutputMessage" />
+  <wsdl:message name="GetMyProductsRequest">
+    <wsdl:part name="parameters" element="tns:GetMyProductsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMyProductsResponse">
+    <wsdl:part name="parameters" element="tns:GetMyProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelProductRequest">
+    <wsdl:part name="parameters" element="tns:CancelProductRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_CancelProduct_OutputMessage" />
+  <wsdl:message name="IDiomedeStorage_GetAllContracts_InputMessage" />
+  <wsdl:message name="GetAllContractsResponse">
+    <wsdl:part name="parameters" element="tns:GetAllContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseContractRequest">
+    <wsdl:part name="parameters" element="tns:PurchaseContractRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseContractResponse">
+    <wsdl:part name="parameters" element="tns:PurchaseContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMyContractsRequest">
+    <wsdl:part name="parameters" element="tns:GetMyContractsRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetMyContractsResponse">
+    <wsdl:part name="parameters" element="tns:GetMyContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelContractRequest">
+    <wsdl:part name="parameters" element="tns:CancelContractRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_CancelContract_OutputMessage" />
+  <wsdl:message name="SearchInvoiceRequest">
+    <wsdl:part name="parameters" element="tns:SearchInvoiceRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchInvoiceResponse">
+    <wsdl:part name="parameters" element="tns:SearchInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesTotalLogRequest">
+    <wsdl:part name="parameters" element="tns:SearchFilesTotalLogRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesTotalLogResponse">
+    <wsdl:part name="parameters" element="tns:SearchFilesTotalLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserRequest">
+    <wsdl:part name="parameters" element="tns:CreateUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_CreateUser_OutputMessage" />
+  <wsdl:message name="UpdateUserInfoRequest">
+    <wsdl:part name="parameters" element="tns:UpdateUserInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_SetUserInfo_OutputMessage" />
+  <wsdl:message name="GetUserInfoRequest">
+    <wsdl:part name="parameters" element="tns:GetUserInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoResponse">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteUserInfoRequest">
+    <wsdl:part name="parameters" element="tns:DeleteUserInfoRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteUserInfo_OutputMessage" />
+  <wsdl:message name="GetEmailAddressesRequest">
+    <wsdl:part name="parameters" element="tns:GetEmailAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetEmailAddressesResponse">
+    <wsdl:part name="parameters" element="tns:GetEmailAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddEmailAddressRequest">
+    <wsdl:part name="parameters" element="tns:AddEmailAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_AddEmailAddress_OutputMessage" />
+  <wsdl:message name="DeleteEmailAddressRequest">
+    <wsdl:part name="parameters" element="tns:DeleteEmailAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteEmailAddress_OutputMessage" />
+  <wsdl:message name="SetPrimaryEmailAddressRequest">
+    <wsdl:part name="parameters" element="tns:SetPrimaryEmailAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_SetPrimaryEmailAddress_OutputMessage" />
+  <wsdl:message name="DeleteUserRequest">
+    <wsdl:part name="parameters" element="tns:DeleteUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteUser_OutputMessage" />
+  <wsdl:message name="SearchPaymentLogRequest">
+    <wsdl:part name="parameters" element="tns:SearchPaymentLogRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchPaymentLogResponse">
+    <wsdl:part name="parameters" element="tns:SearchPaymentLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordRequest">
+    <wsdl:part name="parameters" element="tns:ChangePasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_ChangePassword_OutputMessage" />
+  <wsdl:message name="ResetPasswordRequest">
+    <wsdl:part name="parameters" element="tns:ResetPasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_ResetPassword_OutputMessage" />
+  <wsdl:message name="CreateReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:CreateReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateReplicationPolicyResponse">
+    <wsdl:part name="parameters" element="tns:CreateReplicationPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReplicationPoliciesRequest">
+    <wsdl:part name="parameters" element="tns:GetReplicationPoliciesRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetReplicationPoliciesResponse">
+    <wsdl:part name="parameters" element="tns:GetReplicationPoliciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:EditReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_EditReplicationPolicy_OutputMessage" />
+  <wsdl:message name="DeleteReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:DeleteReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_DeleteReplicationPolicy_OutputMessage" />
+  <wsdl:message name="SetReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:SetReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_SetReplicationPolicy_OutputMessage" />
+  <wsdl:message name="SetDefaultReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:SetDefaultReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_SetDefaultReplicationPolicy_OutputMessage" />
+  <wsdl:message name="GetDefaultReplicationPolicyRequest">
+    <wsdl:part name="parameters" element="tns:GetDefaultReplicationPolicyRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultReplicationPolicyResponse">
+    <wsdl:part name="parameters" element="tns:GetDefaultReplicationPolicyResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSecretRequest">
+    <wsdl:part name="parameters" element="tns:CreateSecretRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateSecretResponse">
+    <wsdl:part name="parameters" element="tns:CreateSecretResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginRequest">
+    <wsdl:part name="parameters" element="tns:LoginRequest" />
+  </wsdl:message>
+  <wsdl:message name="LoginResponse">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutRequest">
+    <wsdl:part name="parameters" element="tns:LogoutRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDiomedeStorage_Logout_OutputMessage" />
+  <wsdl:message name="GetUploadTokenRequest">
+    <wsdl:part name="parameters" element="tns:GetUploadTokenRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetUploadTokenResponse">
+    <wsdl:part name="parameters" element="tns:GetUploadTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDownloadURLRequest">
+    <wsdl:part name="parameters" element="tns:GetDownloadURLRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetDownloadURLResponse">
+    <wsdl:part name="parameters" element="tns:GetDownloadURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesRequest">
+    <wsdl:part name="parameters" element="tns:SearchFilesRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesResponse">
+    <wsdl:part name="parameters" element="tns:SearchFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesTotalRequest">
+    <wsdl:part name="parameters" element="tns:SearchFilesTotalRequest" />
+  </wsdl:message>
+  <wsdl:message name="SearchFilesTotalResponse">
+    <wsdl:part name="parameters" element="tns:SearchFilesTotalResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IDiomedeStorage">
+    <wsdl:documentation>
+      <summary>The Diomede file management service</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="RenameFile">
+      <wsdl:documentation>
+        <summary>Rename a file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="RenameFile" name="RenameFileRequest" message="tns:RenameFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/RenameFileResponse" message="tns:IDiomedeStorage_RenameFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:documentation>
+        <summary>Delete a file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteFile" name="DeleteFileRequest" message="tns:DeleteFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteFileResponse" message="tns:IDiomedeStorage_DeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UndeleteFile">
+      <wsdl:documentation>
+        <summary>Undelete a deleted file (if still available).</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="UndeleteFile" name="UndeleteFileRequest" message="tns:UndeleteFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/UndeleteFileResponse" message="tns:IDiomedeStorage_UndeleteFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileMetaData">
+      <wsdl:documentation>
+        <summary>Associate a custom key/value pair with a file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CreateFileMetaData" name="CreateFileMetaDataRequest" message="tns:CreateFileMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CreateFileMetaDataResponse" name="CreateFileMetaDataResponse" message="tns:CreateFileMetaDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetFileMetaData">
+      <wsdl:documentation>
+        <summary>Associate a custom key/value pair with a file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SetFileMetaData" name="SetFileMetaDataRequest" message="tns:SetFileMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SetFileMetaDataResponse" message="tns:IDiomedeStorage_SetFileMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileMetaData">
+      <wsdl:documentation>
+        <summary>Disassociate metadata to a specific file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteFileMetaData" name="DeleteFileMetaDataRequest" message="tns:DeleteFileMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteFileMetaDataResponse" message="tns:IDiomedeStorage_DeleteFileMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateMetaData">
+      <wsdl:documentation>
+        <summary>Create a new unassociated metadata.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CreateMetaData" name="CreateMetaDataRequest" message="tns:CreateMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CreateMetaDataResponse" name="CreateMetaDataResponse" message="tns:CreateMetaDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFileMetaData">
+      <wsdl:documentation>
+        <summary>Get file's metadata.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetFileMetaData" name="GetFileMetaDataRequest" message="tns:GetFileMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetFileMetaDataResponse" name="GetFileMetaDataResponse" message="tns:GetFileMetaDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMetaData">
+      <wsdl:documentation>
+        <summary>Search MetaData.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetMetaData" name="GetMetaDataRequest" message="tns:GetMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetMetaDataResponse" name="GetMetaDataResponse" message="tns:GetMetaDataResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditMetaData">
+      <wsdl:documentation>
+        <summary>Edit metadata information.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="EditMetaData" name="EditMetaDataRequest" message="tns:EditMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/EditMetaDataResponse" message="tns:IDiomedeStorage_EditMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMetaData">
+      <wsdl:documentation>
+        <summary>Disassociate metadata to all file instances.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteMetaData" name="DeleteMetaDataRequest" message="tns:DeleteMetaDataRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteMetaDataResponse" message="tns:IDiomedeStorage_DeleteMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveFileToTier">
+      <wsdl:documentation>
+        <summary>Request that a file be moved to a different storage tier (asynchronous).</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="MoveFileToTier" name="MoveFileToTierRequest" message="tns:MoveFileToTierRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/MoveFileToTierResponse" message="tns:IDiomedeStorage_MoveFileToTier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReplicateFile">
+      <wsdl:documentation>
+        <summary>Creates a request to backup the file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="ReplicateFile" name="ReplicateFileRequest" message="tns:ReplicateFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/ReplicateFileResponse" name="ReplicateFileResponse" message="tns:ReplicateFileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UnreplicateFile">
+      <wsdl:documentation>
+        <summary>Creates a request to delete the specified backup copy of the file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="UnreplicateFile" name="UnreplicateFileRequest" message="tns:UnreplicateFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/UnreplicateFileResponse" message="tns:IDiomedeStorage_UnreplicateFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageTypes">
+      <wsdl:documentation>
+        <summary>Get all storage types.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetStorageTypes" message="tns:IDiomedeStorage_GetStorageTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetStorageTypesResponse" name="GetStorageTypesResponse" message="tns:GetStorageTypesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalFiles">
+      <wsdl:documentation>
+        <summary>Get replication copies.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetPhysicalFiles" name="GetPhysicalFilesRequest" message="tns:GetPhysicalFilesRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetPhysicalFilesResponse" name="GetPhysicalFilesResponse" message="tns:GetPhysicalFilesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalFile">
+      <wsdl:documentation>
+        <summary>Get a replication copy.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetPhysicalFile" name="GetPhysicalFileRequest" message="tns:GetPhysicalFileRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetPhysicalFileResponse" name="GetPhysicalFileResponse" message="tns:GetPhysicalFileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUploadLog">
+      <wsdl:documentation>
+        <summary>Search the user's upload history.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchUploadLog" name="SearchUploadLogRequest" message="tns:SearchUploadLogRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchUploadLogResponse" name="SearchUploadLogResponse" message="tns:SearchUploadLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDownloadLog">
+      <wsdl:documentation>
+        <summary>Search the user's download history.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchDownloadLog" name="SearchDownloadLogRequest" message="tns:SearchDownloadLogRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchDownloadLogResponse" name="SearchDownloadLogResponse" message="tns:SearchDownloadLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchLoginLog">
+      <wsdl:documentation>
+        <summary>Search the user's login history.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchLoginLog" name="SearchLoginLogRequest" message="tns:SearchLoginLogRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchLoginLogResponse" name="SearchLoginLogResponse" message="tns:SearchLoginLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <wsdl:documentation>
+        <summary>Get all available products</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetAllProducts" message="tns:IDiomedeStorage_GetAllProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetAllProductsResponse" name="GetAllProductsResponse" message="tns:GetAllProductsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProduct">
+      <wsdl:documentation>
+        <summary>Purchase new product.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="PurchaseProduct" name="PurchaseProductRequest" message="tns:PurchaseProductRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/PurchaseProductResponse" message="tns:IDiomedeStorage_PurchaseProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyProducts">
+      <wsdl:documentation>
+        <summary>Get all user's products</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetMyProducts" name="GetMyProductsRequest" message="tns:GetMyProductsRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetMyProductsResponse" name="GetMyProductsResponse" message="tns:GetMyProductsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelProduct">
+      <wsdl:documentation>
+        <summary>Cancel my purchased product</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CancelProduct" name="CancelProductRequest" message="tns:CancelProductRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CancelProductResponse" message="tns:IDiomedeStorage_CancelProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContracts">
+      <wsdl:documentation>
+        <summary>Get all contracts</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetAllContracts" message="tns:IDiomedeStorage_GetAllContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetAllContractsResponse" name="GetAllContractsResponse" message="tns:GetAllContractsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseContract">
+      <wsdl:documentation>
+        <summary>Purchase new contract</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="PurchaseContract" name="PurchaseContractRequest" message="tns:PurchaseContractRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/PurchaseContractResponse" name="PurchaseContractResponse" message="tns:PurchaseContractResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMyContracts">
+      <wsdl:documentation>
+        <summary>Get all user's contracts</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetMyContracts" name="GetMyContractsRequest" message="tns:GetMyContractsRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetMyContractsResponse" name="GetMyContractsResponse" message="tns:GetMyContractsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelContract">
+      <wsdl:documentation>
+        <summary>Cancel my purchased contract.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CancelContract" name="CancelContractRequest" message="tns:CancelContractRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CancelContractResponse" message="tns:IDiomedeStorage_CancelContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchInvoiceLog">
+      <wsdl:documentation>
+        <summary>Search invoices</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchInvoiceLog" name="SearchInvoiceRequest" message="tns:SearchInvoiceRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchInvoiceLogResponse" name="SearchInvoiceResponse" message="tns:SearchInvoiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilesTotalLog">
+      <wsdl:documentation>
+        <summary>Search merged user activity logs.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchFilesTotalLog" name="SearchFilesTotalLogRequest" message="tns:SearchFilesTotalLogRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchFilesTotalLogResponse" name="SearchFilesTotalLogResponse" message="tns:SearchFilesTotalLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:documentation>
+        <summary>Create a new user.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CreateUser" name="CreateUserRequest" message="tns:CreateUserRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CreateUserResponse" message="tns:IDiomedeStorage_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserInfo">
+      <wsdl:documentation>
+        <summary>Modify a user's personal details.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SetUserInfo" name="UpdateUserInfoRequest" message="tns:UpdateUserInfoRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SetUserInfoResponse" message="tns:IDiomedeStorage_SetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:documentation>
+        <summary>Get information of currently login user.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetUserInfo" name="GetUserInfoRequest" message="tns:GetUserInfoRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetUserInfoResponse" name="GetUserInfoResponse" message="tns:GetUserInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInfo">
+      <wsdl:documentation>
+        <summary>Delete user's information</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteUserInfo" name="DeleteUserInfoRequest" message="tns:DeleteUserInfoRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteUserInfoResponse" message="tns:IDiomedeStorage_DeleteUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddresses">
+      <wsdl:documentation>
+        <summary>Get the user's list of email addresses.  The default address is the first one.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetEmailAddresses" name="GetEmailAddressesRequest" message="tns:GetEmailAddressesRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetEmailAddressesResponse" name="GetEmailAddressesResponse" message="tns:GetEmailAddressesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailAddress">
+      <wsdl:documentation>
+        <summary>Add an email address to the user's account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="AddEmailAddress" name="AddEmailAddressRequest" message="tns:AddEmailAddressRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/AddEmailAddressResponse" message="tns:IDiomedeStorage_AddEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailAddress">
+      <wsdl:documentation>
+        <summary>Remove an email address from the user's account.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteEmailAddress" name="DeleteEmailAddressRequest" message="tns:DeleteEmailAddressRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteEmailAddressResponse" message="tns:IDiomedeStorage_DeleteEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPrimaryEmailAddress">
+      <wsdl:documentation>
+        <summary>Set the user's primary email address.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SetPrimaryEmailAddress" name="SetPrimaryEmailAddressRequest" message="tns:SetPrimaryEmailAddressRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SetPrimaryEmailAddressResponse" message="tns:IDiomedeStorage_SetPrimaryEmailAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:documentation>
+        <summary>Delete the user from the system.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteUser" name="DeleteUserRequest" message="tns:DeleteUserRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteUserResponse" message="tns:IDiomedeStorage_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPaymentLog">
+      <wsdl:documentation>
+        <summary>Search for past payments.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchPaymentLog" name="SearchPaymentLogRequest" message="tns:SearchPaymentLogRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchPaymentLogResponse" name="SearchPaymentLogResponse" message="tns:SearchPaymentLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation>
+        <summary>Change the currently login user's password</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="ChangePassword" name="ChangePasswordRequest" message="tns:ChangePasswordRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/ChangePasswordResponse" message="tns:IDiomedeStorage_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:documentation>
+        <summary>Emails the user for Password Reset confirmation link</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="ResetPassword" name="ResetPasswordRequest" message="tns:ResetPasswordRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/ResetPasswordResponse" message="tns:IDiomedeStorage_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Create a new replication policy.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CreateReplicationPolicy" name="CreateReplicationPolicyRequest" message="tns:CreateReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CreateReplicationPolicyResponse" name="CreateReplicationPolicyResponse" message="tns:CreateReplicationPolicyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplicationPolicies">
+      <wsdl:documentation>
+        <summary>List all replication policies of the given user.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetReplicationPolicies" name="GetReplicationPoliciesRequest" message="tns:GetReplicationPoliciesRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetReplicationPoliciesResponse" name="GetReplicationPoliciesResponse" message="tns:GetReplicationPoliciesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EditReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Edit a replication policy.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="EditReplicationPolicy" name="EditReplicationPolicyRequest" message="tns:EditReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/EditReplicationPolicyResponse" message="tns:IDiomedeStorage_EditReplicationPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Delete a replication policy.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="DeleteReplicationPolicy" name="DeleteReplicationPolicyRequest" message="tns:DeleteReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/DeleteReplicationPolicyResponse" message="tns:IDiomedeStorage_DeleteReplicationPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Set a replication policy to a logical file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SetReplicationPolicy" name="SetReplicationPolicyRequest" message="tns:SetReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SetReplicationPolicyResponse" message="tns:IDiomedeStorage_SetReplicationPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Set a replication policy to be the user's default.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SetDefaultReplicationPolicy" name="SetDefaultReplicationPolicyRequest" message="tns:SetDefaultReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SetDefaultReplicationPolicyResponse" message="tns:IDiomedeStorage_SetDefaultReplicationPolicy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReplicationPolicy">
+      <wsdl:documentation>
+        <summary>Get the user's default replication policy.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetDefaultReplicationPolicy" name="GetDefaultReplicationPolicyRequest" message="tns:GetDefaultReplicationPolicyRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetDefaultReplicationPolicyResponse" name="GetDefaultReplicationPolicyResponse" message="tns:GetDefaultReplicationPolicyResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOAuthSecretAndKey">
+      <wsdl:documentation>
+        <summary>Create an oauth secret and key.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="CreateOAuthSecretAndKey" name="CreateSecretRequest" message="tns:CreateSecretRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/CreateOAuthSecretAndKeyResponse" name="CreateSecretResponse" message="tns:CreateSecretResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:documentation>
+        <summary>Begin the session and get a session token.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="Login" name="LoginRequest" message="tns:LoginRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/LoginResponse" name="LoginResponse" message="tns:LoginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation>
+        <summary>End the active session.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="Logout" name="LogoutRequest" message="tns:LogoutRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/LogoutResponse" message="tns:IDiomedeStorage_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadToken">
+      <wsdl:documentation>
+        <summary>Reserve space to perform an upload and get the upload token to use during the transfer.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetUploadToken" name="GetUploadTokenRequest" message="tns:GetUploadTokenRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetUploadTokenResponse" name="GetUploadTokenResponse" message="tns:GetUploadTokenResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDownloadURL">
+      <wsdl:documentation>
+        <summary>Get a download address for a file belonging to the user.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="GetDownloadURL" name="GetDownloadURLRequest" message="tns:GetDownloadURLRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/GetDownloadURLResponse" name="GetDownloadURLResponse" message="tns:GetDownloadURLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiles">
+      <wsdl:documentation>
+        <summary>Search for a user's file.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchFiles" name="SearchFilesRequest" message="tns:SearchFilesRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchFilesResponse" name="SearchFilesResponse" message="tns:SearchFilesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilesTotal">
+      <wsdl:documentation>
+        <summary>Get summary data for a group of files.</summary>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="SearchFilesTotal" name="SearchFilesTotalRequest" message="tns:SearchFilesTotalRequest" />
+      <wsdl:output wsaw:Action="http://service.diomedestorage.com/IDiomedeStorage/SearchFilesTotalResponse" name="SearchFilesTotalResponse" message="tns:SearchFilesTotalResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDiomedeStorage" type="tns:IDiomedeStorage">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RenameFile">
+      <soap:operation soapAction="RenameFile" style="document" />
+      <wsdl:input name="RenameFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="DeleteFile" style="document" />
+      <wsdl:input name="DeleteFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UndeleteFile">
+      <soap:operation soapAction="UndeleteFile" style="document" />
+      <wsdl:input name="UndeleteFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileMetaData">
+      <soap:operation soapAction="CreateFileMetaData" style="document" />
+      <wsdl:input name="CreateFileMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateFileMetaDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetFileMetaData">
+      <soap:operation soapAction="SetFileMetaData" style="document" />
+      <wsdl:input name="SetFileMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFileMetaData">
+      <soap:operation soapAction="DeleteFileMetaData" style="document" />
+      <wsdl:input name="DeleteFileMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateMetaData">
+      <soap:operation soapAction="CreateMetaData" style="document" />
+      <wsdl:input name="CreateMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateMetaDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFileMetaData">
+      <soap:operation soapAction="GetFileMetaData" style="document" />
+      <wsdl:input name="GetFileMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetFileMetaDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMetaData">
+      <soap:operation soapAction="GetMetaData" style="document" />
+      <wsdl:input name="GetMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetMetaDataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditMetaData">
+      <soap:operation soapAction="EditMetaData" style="document" />
+      <wsdl:input name="EditMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMetaData">
+      <soap:operation soapAction="DeleteMetaData" style="document" />
+      <wsdl:input name="DeleteMetaDataRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveFileToTier">
+      <soap:operation soapAction="MoveFileToTier" style="document" />
+      <wsdl:input name="MoveFileToTierRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReplicateFile">
+      <soap:operation soapAction="ReplicateFile" style="document" />
+      <wsdl:input name="ReplicateFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ReplicateFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnreplicateFile">
+      <soap:operation soapAction="UnreplicateFile" style="document" />
+      <wsdl:input name="UnreplicateFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStorageTypes">
+      <soap:operation soapAction="GetStorageTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetStorageTypesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalFiles">
+      <soap:operation soapAction="GetPhysicalFiles" style="document" />
+      <wsdl:input name="GetPhysicalFilesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPhysicalFilesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhysicalFile">
+      <soap:operation soapAction="GetPhysicalFile" style="document" />
+      <wsdl:input name="GetPhysicalFileRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetPhysicalFileResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUploadLog">
+      <soap:operation soapAction="SearchUploadLog" style="document" />
+      <wsdl:input name="SearchUploadLogRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchUploadLogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDownloadLog">
+      <soap:operation soapAction="SearchDownloadLog" style="document" />
+      <wsdl:input name="SearchDownloadLogRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchDownloadLogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchLoginLog">
+      <soap:operation soapAction="SearchLoginLog" style="document" />
+      <wsdl:input name="SearchLoginLogRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchLoginLogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProducts">
+      <soap:operation soapAction="GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllProductsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseProduct">
+      <soap:operation soapAction="PurchaseProduct" style="document" />
+      <wsdl:input name="PurchaseProductRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyProducts">
+      <soap:operation soapAction="GetMyProducts" style="document" />
+      <wsdl:input name="GetMyProductsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetMyProductsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelProduct">
+      <soap:operation soapAction="CancelProduct" style="document" />
+      <wsdl:input name="CancelProductRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllContracts">
+      <soap:operation soapAction="GetAllContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllContractsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseContract">
+      <soap:operation soapAction="PurchaseContract" style="document" />
+      <wsdl:input name="PurchaseContractRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PurchaseContractResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMyContracts">
+      <soap:operation soapAction="GetMyContracts" style="document" />
+      <wsdl:input name="GetMyContractsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetMyContractsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelContract">
+      <soap:operation soapAction="CancelContract" style="document" />
+      <wsdl:input name="CancelContractRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchInvoiceLog">
+      <soap:operation soapAction="SearchInvoiceLog" style="document" />
+      <wsdl:input name="SearchInvoiceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchInvoiceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilesTotalLog">
+      <soap:operation soapAction="SearchFilesTotalLog" style="document" />
+      <wsdl:input name="SearchFilesTotalLogRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchFilesTotalLogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="CreateUser" style="document" />
+      <wsdl:input name="CreateUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserInfo">
+      <soap:operation soapAction="SetUserInfo" style="document" />
+      <wsdl:input name="UpdateUserInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="GetUserInfo" style="document" />
+      <wsdl:input name="GetUserInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetUserInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInfo">
+      <soap:operation soapAction="DeleteUserInfo" style="document" />
+      <wsdl:input name="DeleteUserInfoRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailAddresses">
+      <soap:operation soapAction="GetEmailAddresses" style="document" />
+      <wsdl:input name="GetEmailAddressesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetEmailAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddEmailAddress">
+      <soap:operation soapAction="AddEmailAddress" style="document" />
+      <wsdl:input name="AddEmailAddressRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmailAddress">
+      <soap:operation soapAction="DeleteEmailAddress" style="document" />
+      <wsdl:input name="DeleteEmailAddressRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPrimaryEmailAddress">
+      <soap:operation soapAction="SetPrimaryEmailAddress" style="document" />
+      <wsdl:input name="SetPrimaryEmailAddressRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="DeleteUser" style="document" />
+      <wsdl:input name="DeleteUserRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPaymentLog">
+      <soap:operation soapAction="SearchPaymentLog" style="document" />
+      <wsdl:input name="SearchPaymentLogRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchPaymentLogResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="ChangePassword" style="document" />
+      <wsdl:input name="ChangePasswordRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <soap:operation soapAction="ResetPassword" style="document" />
+      <wsdl:input name="ResetPasswordRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReplicationPolicy">
+      <soap:operation soapAction="CreateReplicationPolicy" style="document" />
+      <wsdl:input name="CreateReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateReplicationPolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplicationPolicies">
+      <soap:operation soapAction="GetReplicationPolicies" style="document" />
+      <wsdl:input name="GetReplicationPoliciesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetReplicationPoliciesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditReplicationPolicy">
+      <soap:operation soapAction="EditReplicationPolicy" style="document" />
+      <wsdl:input name="EditReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReplicationPolicy">
+      <soap:operation soapAction="DeleteReplicationPolicy" style="document" />
+      <wsdl:input name="DeleteReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetReplicationPolicy">
+      <soap:operation soapAction="SetReplicationPolicy" style="document" />
+      <wsdl:input name="SetReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetDefaultReplicationPolicy">
+      <soap:operation soapAction="SetDefaultReplicationPolicy" style="document" />
+      <wsdl:input name="SetDefaultReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultReplicationPolicy">
+      <soap:operation soapAction="GetDefaultReplicationPolicy" style="document" />
+      <wsdl:input name="GetDefaultReplicationPolicyRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDefaultReplicationPolicyResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOAuthSecretAndKey">
+      <soap:operation soapAction="CreateOAuthSecretAndKey" style="document" />
+      <wsdl:input name="CreateSecretRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CreateSecretResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="Login" style="document" />
+      <wsdl:input name="LoginRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoginResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="Logout" style="document" />
+      <wsdl:input name="LogoutRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUploadToken">
+      <soap:operation soapAction="GetUploadToken" style="document" />
+      <wsdl:input name="GetUploadTokenRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetUploadTokenResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDownloadURL">
+      <soap:operation soapAction="GetDownloadURL" style="document" />
+      <wsdl:input name="GetDownloadURLRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetDownloadURLResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiles">
+      <soap:operation soapAction="SearchFiles" style="document" />
+      <wsdl:input name="SearchFilesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchFilesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFilesTotal">
+      <soap:operation soapAction="SearchFilesTotal" style="document" />
+      <wsdl:input name="SearchFilesTotalRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SearchFilesTotalResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DiomedeStorageSvc">
+    <wsdl:port name="BasicHttpBinding_IDiomedeStorage" binding="tns:BasicHttpBinding_IDiomedeStorage">
+      <soap:address location="http://service.diomedestorage.com/DiomedeStorageService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

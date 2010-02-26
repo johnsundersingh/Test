@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://data.diomedestorage.com" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://data.diomedestorage.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetaData" nillable="true" type="tns:MetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetaData" nillable="true" type="tns:ArrayOfMetaData" />
+  <xs:complexType name="MetaData">
+    <xs:sequence>
+      <xs:element name="metaDataID" type="xs:int" />
+      <xs:element name="name" nillable="true" type="xs:string" />
+      <xs:element name="value" nillable="true" type="xs:string" />
+      <xs:element name="createdDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetaData" nillable="true" type="tns:MetaData" />
+  <xs:complexType name="ArrayOfStorageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StorageType" nillable="true" type="tns:StorageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStorageType" nillable="true" type="tns:ArrayOfStorageType" />
+  <xs:complexType name="StorageType">
+    <xs:sequence>
+      <xs:element name="storageTypeID" type="xs:int" />
+      <xs:element name="name" nillable="true" type="xs:string" />
+      <xs:element name="powerPerMB" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StorageType" nillable="true" type="tns:StorageType" />
+  <xs:complexType name="ArrayOfPhysicalFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PhysicalFileInfo" nillable="true" type="tns:PhysicalFileInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPhysicalFileInfo" nillable="true" type="tns:ArrayOfPhysicalFileInfo" />
+  <xs:complexType name="PhysicalFileInfo">
+    <xs:sequence>
+      <xs:element name="physicalFileID" type="xs:long" />
+      <xs:element name="storageTypeID" type="xs:int" />
+      <xs:element name="power" type="xs:double" />
+      <xs:element name="requestedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="createdDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="exercisedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="expirationDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhysicalFileInfo" nillable="true" type="tns:PhysicalFileInfo" />
+  <xs:complexType name="ArrayOfUploadLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UploadLogEntry" nillable="true" type="tns:UploadLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUploadLogEntry" nillable="true" type="tns:ArrayOfUploadLogEntry" />
+  <xs:complexType name="UploadLogEntry">
+    <xs:sequence>
+      <xs:element name="fileID" type="xs:long" />
+      <xs:element name="uploadTime" type="xs:dateTime" />
+      <xs:element name="uploaderIP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadLogEntry" nillable="true" type="tns:UploadLogEntry" />
+  <xs:complexType name="ArrayOfDownloadLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DownloadLogEntry" nillable="true" type="tns:DownloadLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDownloadLogEntry" nillable="true" type="tns:ArrayOfDownloadLogEntry" />
+  <xs:complexType name="DownloadLogEntry">
+    <xs:sequence>
+      <xs:element name="fileID" type="xs:long" />
+      <xs:element name="startTime" type="xs:dateTime" />
+      <xs:element name="endTime" type="xs:dateTime" />
+      <xs:element name="downloadToken" nillable="true" type="xs:string" />
+      <xs:element name="downloaderIP" nillable="true" type="xs:string" />
+      <xs:element name="startByte" type="xs:long" />
+      <xs:element name="byteCount" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DownloadLogEntry" nillable="true" type="tns:DownloadLogEntry" />
+  <xs:complexType name="ArrayOfLoginLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoginLogEntry" nillable="true" type="tns:LoginLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoginLogEntry" nillable="true" type="tns:ArrayOfLoginLogEntry" />
+  <xs:complexType name="LoginLogEntry">
+    <xs:sequence>
+      <xs:element name="userID" type="ser:guid" />
+      <xs:element name="loginDate" type="xs:dateTime" />
+      <xs:element name="loginIP" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginLogEntry" nillable="true" type="tns:LoginLogEntry" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element name="productID" type="xs:int" />
+      <xs:element name="name" nillable="true" type="xs:string" />
+      <xs:element name="description" nillable="true" type="xs:string" />
+      <xs:element name="minMonthlyFee" type="xs:int" />
+      <xs:element name="components" nillable="true" type="tns:ArrayOfProductComponent" />
+      <xs:element name="supportFee" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Product" nillable="true" type="tns:Product" />
+  <xs:complexType name="ArrayOfProductComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductComponent" nillable="true" type="tns:ProductComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductComponent" nillable="true" type="tns:ArrayOfProductComponent" />
+  <xs:complexType name="ProductComponent">
+    <xs:sequence>
+      <xs:element name="description" nillable="true" type="xs:string" />
+      <xs:element name="storageTypeID" type="xs:int" />
+      <xs:element name="meterType" nillable="true" type="xs:string" />
+      <xs:element name="ratePerGB" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductComponent" nillable="true" type="tns:ProductComponent" />
+  <xs:complexType name="ArrayOfUserProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserProduct" nillable="true" type="tns:UserProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserProduct" nillable="true" type="tns:ArrayOfUserProduct" />
+  <xs:complexType name="UserProduct">
+    <xs:sequence>
+      <xs:element name="product" nillable="true" type="tns:Product" />
+      <xs:element name="withSupport" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserProduct" nillable="true" type="tns:UserProduct" />
+  <xs:complexType name="ArrayOfContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Contract" nillable="true" type="tns:Contract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContract" nillable="true" type="tns:ArrayOfContract" />
+  <xs:complexType name="Contract">
+    <xs:sequence>
+      <xs:element name="contractID" type="xs:int" />
+      <xs:element name="ratePerTerm" type="xs:int" />
+      <xs:element name="term" type="xs:int" />
+      <xs:element name="components" nillable="true" type="tns:ArrayOfContractComponent" />
+      <xs:element name="description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contract" nillable="true" type="tns:Contract" />
+  <xs:complexType name="ArrayOfContractComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContractComponent" nillable="true" type="tns:ContractComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContractComponent" nillable="true" type="tns:ArrayOfContractComponent" />
+  <xs:complexType name="ContractComponent">
+    <xs:sequence>
+      <xs:element name="storageTypeID" type="xs:int" />
+      <xs:element name="meterType" nillable="true" type="xs:string" />
+      <xs:element name="committedGB" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContractComponent" nillable="true" type="tns:ContractComponent" />
+  <xs:complexType name="ArrayOfUserContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserContract" nillable="true" type="tns:UserContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserContract" nillable="true" type="tns:ArrayOfUserContract" />
+  <xs:complexType name="UserContract">
+    <xs:sequence>
+      <xs:element name="userContractID" type="xs:long" />
+      <xs:element name="contract" nillable="true" type="tns:Contract" />
+      <xs:element name="startDate" type="xs:dateTime" />
+      <xs:element name="endDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserContract" nillable="true" type="tns:UserContract" />
+  <xs:simpleType name="InvoiceStatus">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="unPaid" />
+          <xs:enumeration value="paid" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="InvoiceStatus" nillable="true" type="tns:InvoiceStatus" />
+  <xs:complexType name="ArrayOfInvoiceLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceLogEntry" nillable="true" type="tns:InvoiceLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceLogEntry" nillable="true" type="tns:ArrayOfInvoiceLogEntry" />
+  <xs:complexType name="InvoiceLogEntry">
+    <xs:sequence>
+      <xs:element name="invoiceNumber" type="xs:long" />
+      <xs:element name="invoiceDate" type="xs:dateTime" />
+      <xs:element name="invoiceDetails" nillable="true" type="tns:ArrayOfInvoiceDetail" />
+      <xs:element name="invoiceNote" nillable="true" type="xs:string" />
+      <xs:element name="totalAmount" type="xs:int" />
+      <xs:element name="isPaid" type="xs:boolean" />
+      <xs:element name="paymentInfo" nillable="true" type="tns:PaymentInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceLogEntry" nillable="true" type="tns:InvoiceLogEntry" />
+  <xs:complexType name="ArrayOfInvoiceDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetail" nillable="true" type="tns:InvoiceDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceDetail" nillable="true" type="tns:ArrayOfInvoiceDetail" />
+  <xs:complexType name="InvoiceDetail">
+    <xs:sequence>
+      <xs:element name="itemDescription" nillable="true" type="xs:string" />
+      <xs:element name="amount" type="xs:int" />
+      <xs:element name="remarks" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceDetail" nillable="true" type="tns:InvoiceDetail" />
+  <xs:complexType name="PaymentInfo">
+    <xs:sequence>
+      <xs:element name="paymentDate" type="xs:dateTime" />
+      <xs:element name="amount" type="xs:int" />
+      <xs:element name="paymentType" type="tns:PaymentMethods" />
+      <xs:element name="paymentNote" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentInfo" nillable="true" type="tns:PaymentInfo" />
+  <xs:simpleType name="PaymentMethods">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="none">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="creditCard">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="manual">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="PaymentMethods" nillable="true" type="tns:PaymentMethods" />
+  <xs:complexType name="ArrayOfSearchFilesTotalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchFilesTotalInfo" nillable="true" type="tns:SearchFilesTotalInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchFilesTotalInfo" nillable="true" type="tns:ArrayOfSearchFilesTotalInfo" />
+  <xs:complexType name="SearchFilesTotalInfo">
+    <xs:sequence>
+      <xs:element name="fileCount" type="xs:int" />
+      <xs:element name="fileBytes" type="xs:long" />
+      <xs:element name="deletedFileCount" type="xs:int" />
+      <xs:element name="deletedFileBytes" type="xs:long" />
+      <xs:element name="downloadCount" type="xs:int" />
+      <xs:element name="downloadBytes" type="xs:long" />
+      <xs:element name="uploadCount" type="xs:int" />
+      <xs:element name="uploadBytes" type="xs:long" />
+      <xs:element name="storageTotalInfo" nillable="true" type="tns:ArrayOfSearchFilesTotalStorageInfo" />
+      <xs:element name="createdDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchFilesTotalInfo" nillable="true" type="tns:SearchFilesTotalInfo" />
+  <xs:complexType name="ArrayOfSearchFilesTotalStorageInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchFilesTotalStorageInfo" nillable="true" type="tns:SearchFilesTotalStorageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchFilesTotalStorageInfo" nillable="true" type="tns:ArrayOfSearchFilesTotalStorageInfo" />
+  <xs:complexType name="SearchFilesTotalStorageInfo">
+    <xs:sequence>
+      <xs:element name="storageTypeID" type="xs:int" />
+      <xs:element name="fileCount" type="xs:int" />
+      <xs:element name="fileBytes" type="xs:long" />
+      <xs:element name="power" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchFilesTotalStorageInfo" nillable="true" type="tns:SearchFilesTotalStorageInfo" />
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element name="userName" nillable="true" type="xs:string" />
+      <xs:element name="companyName" nillable="true" type="xs:string" />
+      <xs:element name="websiteUrl" nillable="true" type="xs:string" />
+      <xs:element name="lastName" nillable="true" type="xs:string" />
+      <xs:element name="firstName" nillable="true" type="xs:string" />
+      <xs:element name="phone" nillable="true" type="xs:string" />
+      <xs:element name="createdDate" type="xs:dateTime" />
+      <xs:element name="cardName" nillable="true" type="xs:string" />
+      <xs:element name="cardNumber" nillable="true" type="xs:string" />
+      <xs:element name="cardExpiryYear" type="xs:int" />
+      <xs:element name="cardExpiryMonth" type="xs:int" />
+      <xs:element name="cardCvv2" nillable="true" type="xs:string" />
+      <xs:element name="cardAddress1" nillable="true" type="xs:string" />
+      <xs:element name="cardAddress2" nillable="true" type="xs:string" />
+      <xs:element name="cardCity" nillable="true" type="xs:string" />
+      <xs:element name="cardState" nillable="true" type="xs:string" />
+      <xs:element name="cardZip" nillable="true" type="xs:string" />
+      <xs:element name="cardCountry" nillable="true" type="xs:string" />
+      <xs:element name="accountType" type="tns:UserAccountTypes" />
+      <xs:element name="minMonthlyFee" type="xs:int" />
+      <xs:element name="monthlySupportFee" type="xs:int" />
+      <xs:element name="paymentMethod" type="tns:PaymentMethods" />
+      <xs:element name="paymentDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserInfo" nillable="true" type="tns:UserInfo" />
+  <xs:simpleType name="UserAccountTypes">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="freeAccount">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="paidAccount">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="UserAccountTypes" nillable="true" type="tns:UserAccountTypes" />
+  <xs:simpleType name="UserInfoType">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="companyName">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="websiteUrl">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="lastName">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="firstName">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="phone">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardName">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardNumber">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardExpiryYear">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardCvv2">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardAddress1">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2048</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardAddress2">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardCity">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8192</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardState">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16384</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardZip">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32768</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardCountry">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="allUserInfo">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">131072</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="allBillingInfo">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">262144</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="cardExpiryMonth">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">524288</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="UserInfoType" nillable="true" type="tns:UserInfoType" />
+  <xs:complexType name="ArrayOfPaymentLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentLogEntry" nillable="true" type="tns:PaymentLogEntry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentLogEntry" nillable="true" type="tns:ArrayOfPaymentLogEntry" />
+  <xs:complexType name="PaymentLogEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="amount" type="xs:double" />
+      <xs:element minOccurs="0" name="completedDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentLogEntry" nillable="true" type="tns:PaymentLogEntry" />
+  <xs:complexType name="ArrayOfReplicationPolicy">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReplicationPolicy" nillable="true" type="tns:ReplicationPolicy" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReplicationPolicy" nillable="true" type="tns:ArrayOfReplicationPolicy" />
+  <xs:complexType name="ReplicationPolicy">
+    <xs:sequence>
+      <xs:element name="replicationPolicyID" type="xs:int" />
+      <xs:element name="defaultNumOnline" type="xs:int" />
+      <xs:element name="defaultNumNearline" type="xs:int" />
+      <xs:element name="defaultNumOffline" type="xs:int" />
+      <xs:element name="lastAccessTriggerHours" type="xs:int" />
+      <xs:element minOccurs="0" name="lastAccessTriggerNumOnline" type="xs:int" />
+      <xs:element minOccurs="0" name="lastAccessTriggerNumNearline" type="xs:int" />
+      <xs:element minOccurs="0" name="lastAccessTriggerNumOffline" type="xs:int" />
+      <xs:element minOccurs="0" name="expireHours" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReplicationPolicy" nillable="true" type="tns:ReplicationPolicy" />
+  <xs:complexType name="ConsumerData">
+    <xs:sequence>
+      <xs:element name="oauthID" type="xs:long" />
+      <xs:element name="consumerKey" nillable="true" type="xs:string" />
+      <xs:element name="consumerSecret" nillable="true" type="xs:string" />
+      <xs:element name="userID" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsumerData" nillable="true" type="tns:ConsumerData" />
+  <xs:complexType name="ArrayOfFileProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileProperties" nillable="true" type="tns:FileProperties" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileProperties" nillable="true" type="tns:ArrayOfFileProperties" />
+  <xs:complexType name="FileProperties">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fileID" type="xs:long" />
+      <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hashMD5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hashSHA1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fileSize" type="xs:long" />
+      <xs:element minOccurs="0" name="createdDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lastModifiedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="lastAccessDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="isDeleted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="power" type="xs:double" />
+      <xs:element minOccurs="0" name="isComplete" type="xs:boolean" />
+      <xs:element minOccurs="0" name="replicationPolicyID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileProperties" nillable="true" type="tns:FileProperties" />
+  <xs:complexType name="RestFileProperties">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:FileProperties">
+        <xs:sequence>
+          <xs:element name="physicalFiles" nillable="true" type="tns:ArrayOfPhysicalFileInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RestFileProperties" nillable="true" type="tns:RestFileProperties" />
+</xs:schema>

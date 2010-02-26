@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="57eb0db2-3e68-41f5-8f88-8b21c0c09394" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://transfer.diomedestorage.com" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DiomedeStorageTransfer.xsd" MetadataType="Schema" ID="54f68462-5f6d-4237-88b4-bd3053950d22" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?xsd=xsd0" />
+    <MetadataFile FileName="DiomedeStorageTransfer1.xsd" MetadataType="Schema" ID="e49fe925-4293-488d-ab83-d3be421e4baa" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?xsd=xsd3" />
+    <MetadataFile FileName="DiomedeStorageTransfer.disco" MetadataType="Disco" ID="3a76b47e-44e7-42ad-8ed1-d10bf2a64b6d" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?disco" />
+    <MetadataFile FileName="DiomedeStorageTransfer2.xsd" MetadataType="Schema" ID="c560b53b-5ec5-49a6-84cd-67b682bc7378" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?xsd=xsd2" />
+    <MetadataFile FileName="DiomedeStorageTransfer.wsdl" MetadataType="Wsdl" ID="a6520b7e-8e96-427a-b458-59ca51a0ceaf" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?wsdl" />
+    <MetadataFile FileName="DiomedeStorageTransfer3.xsd" MetadataType="Schema" ID="fbb0c58c-e80a-4777-b283-dbde3600c5b1" SourceId="1" SourceUrl="http://transfer.diomedestorage.com/DiomedeStorageTransfer.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

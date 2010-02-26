@@ -1,0 +1,69 @@
+﻿/*Collapsible Panel*/
+.collapsiblepanel
+{
+	overflow: hidden;
+}
+
+.advancedsearch
+{
+	cursor: pointer;
+	color: #f66820;
+}
+
+.advancedsearch:hover
+{
+	text-decoration: underline;
+}
+
+/*Modal Popup*/
+.modalBackground
+{
+	background-color: #333;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+
+.modalPopup
+{
+	color: #333;
+	background-color: #fff;
+	border: solid #333 3px;
+}
+
+#fileinfoclose
+{
+	position: absolute;
+	top: -12px;
+	right: -12px;
+}
+
+#fileinfo
+{
+	padding: 0 15px 15px;
+}
+
+
+/* Search Form Table */
+.searchrow
+{
+	width: 150px;
+}
+
+
+/* Page Size */
+#pagesize
+{
+	padding: 5px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.pagerbutton
+{
+	vertical-align: middle;
+}
+
+.pagertext
+{
+	text-align: right;
+}

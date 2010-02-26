@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DioWeb", "DioWeb\DioWeb.csproj", "{8503FEB3-B952-4666-A9CD-CAC95FDD5DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DioWeb.Controls.FileUploadLibrary", "DioWeb.Controls.FileUploadLibrary\DioWeb.Controls.FileUploadLibrary.csproj", "{7886866E-6B81-4001-8B50-069E8E7B3CB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8503FEB3-B952-4666-A9CD-CAC95FDD5DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8503FEB3-B952-4666-A9CD-CAC95FDD5DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8503FEB3-B952-4666-A9CD-CAC95FDD5DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8503FEB3-B952-4666-A9CD-CAC95FDD5DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7886866E-6B81-4001-8B50-069E8E7B3CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7886866E-6B81-4001-8B50-069E8E7B3CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7886866E-6B81-4001-8B50-069E8E7B3CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7886866E-6B81-4001-8B50-069E8E7B3CB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,106 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Common.master.cs" Inherits="DioWeb.MasterPages.Common" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>DioWeb</title>
+    <link href="../CSS/Common.css" rel="stylesheet" type="text/css" />
+    <link href="../CSS/Message.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="container">
+        <form id="formCommon" runat="server">
+        <asp:ScriptManager ID="smDioWeb" runat="server">
+        </asp:ScriptManager>
+
+        <script type="text/javascript" language="javascript">
+            var pnlMessage = '<%= pnlMessage.ClientID %>';
+
+            Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+
+            function BeginRequestHandler(sender, args) {
+                // Clear the error if it's visible from a previous request
+                if ($get(pnlMessage).style.display == "block")
+                    CloseMessage();
+            }
+
+            function EndRequestHandler(sender, args) {
+                // Check to see if there's an error on this request
+                if (args.get_error() != undefined) {
+                    // If there is, show the custom error
+                    var pnlMessageElem = $get(pnlMessage);
+                    pnlMessageElem.setAttribute("class", "message error");
+
+                    var errorMessage = args.get_error().message
+                    errorMessage = errorMessage.replace('Sys.WebForms.PageRequestManagerServerErrorException:', "");
+                    $get('<%= lblMessage.ClientID %>').innerHTML = "<span ID='lblClientMessage'><strong>" + errorMessage + "</strong></span>";
+
+                    // Let the framework know that the error is handled, 
+                    // so it doesn't throw the JavaScript alert
+                    args.set_errorHandled(true);
+                }
+            }
+
+            function CloseMessage() {
+                // Hide the error div
+                $get(pnlMessage).style.display = "none";
+            }
+        </script>
+
+        <div id="header">
+            <asp:Image ID="imgDioWebLogo" runat="server" AlternateText="DioWeb" ToolTip="DioWeb - Diomede Storage web interface"
+                ImageUrl="~/Images/dioweb_logo.png" />
+            <br />
+            <span>A <a href="http://www.diomedestorage.com" target="_blank">Diomede Storage</a>
+                web interface</span>
+        </div>
+        <div id="navigation">
+            <ul>
+                <asp:LoginView ID="lvControlPanel" runat="server">
+                    <LoggedInTemplate>
+                        <li>
+                            <asp:HyperLink ID="lnkSearch" runat="server" NavigateUrl="~/Secure/Search.aspx">File Manager</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="lnkUpload" runat="server" NavigateUrl="~/Secure/Upload.aspx">Upload</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="lnkMyDiomede" runat="server" NavigateUrl="~/Secure/MyDiomede.aspx">Account Info</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="lnkSettings" runat="server" NavigateUrl="~/Secure/Settings.aspx">Settings</asp:HyperLink></li>
+                        <li>
+                            <asp:LoginStatus ID="ctrlLoginStatus" runat="server" OnLoggingOut="ctrlLoginStatus_LoggingOut"
+                                OnLoggedOut="ctrlLoginStatus_LoggedOut" />
+                        </li>
+                    </LoggedInTemplate>
+                    <AnonymousTemplate>
+                        <li>
+                            <asp:HyperLink ID="lnkCreateUser" runat="server" NavigateUrl="~/Public/CreateUser.aspx">Create New User</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="~/Public/Login.aspx">Login</asp:HyperLink></li>
+                    </AnonymousTemplate>
+                </asp:LoginView>
+            </ul>
+        </div>
+        <div id="content">
+            <asp:UpdatePanel ID="upnlMessage" runat="server">
+                <ContentTemplate>
+                    <asp:Panel ID="pnlMessage" runat="server" EnableViewState="false" CssClass="invisible">
+                        <asp:Label ID="lblMessage" runat="server" EnableViewState="false">
+                        </asp:Label>
+                        <span id="imgMessage" onclick="CloseMessage();" title="Close"></span>
+                    </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:ContentPlaceHolder ID="mainPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="footer">
+            <p>
+                Copyright &#169; 2009 Diomede Corporation. All Rights Reserved. Patents Pending.</p>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

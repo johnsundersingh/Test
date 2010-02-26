@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.diomedestorage.com" elementFormDefault="qualified" targetNamespace="http://service.diomedestorage.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd2" namespace="http://data.diomedestorage.com" />
+  <xs:import schemaLocation="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="RenameFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="newFileName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UndeleteFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFileMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="metaName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateFileMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetFileMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteFileMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFileMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://data.diomedestorage.com" minOccurs="0" name="metaData" nillable="true" type="q1:ArrayOfMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaDataID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetaDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://data.diomedestorage.com" minOccurs="0" name="metaData" nillable="true" type="q2:ArrayOfMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMetaDataRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaDataID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MoveFileToTierRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:int" />
+        <xs:element minOccurs="0" name="targetTier" type="xs:int" />
+        <xs:element minOccurs="0" name="callbackAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplicateFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="storageTypeID" type="xs:int" />
+        <xs:element minOccurs="0" name="expirationDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplicateFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="physicalFileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnreplicateFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="physicalFileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStorageTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://data.diomedestorage.com" minOccurs="0" name="storageTypes" nillable="true" type="q3:ArrayOfStorageType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicalFilesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicalFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://data.diomedestorage.com" minOccurs="0" name="physicalFiles" nillable="true" type="q4:ArrayOfPhysicalFileInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicalFileRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="physicalFileID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPhysicalFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://data.diomedestorage.com" minOccurs="0" name="physicalFile" nillable="true" type="q5:PhysicalFileInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadLogRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="uploaderIP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="offset" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchUploadLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://data.diomedestorage.com" minOccurs="0" name="logEntries" nillable="true" type="q6:ArrayOfUploadLogEntry" />
+        <xs:element minOccurs="0" name="totalResults" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDownloadLogRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="downloadToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="downloaderIP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="offset" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDownloadLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://data.diomedestorage.com" minOccurs="0" name="logEntries" nillable="true" type="q7:ArrayOfDownloadLogEntry" />
+        <xs:element minOccurs="0" name="totalResults" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchLoginLogRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="loginIP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="offset" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchLoginLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://data.diomedestorage.com" minOccurs="0" name="logEntries" nillable="true" type="q8:ArrayOfLoginLogEntry" />
+        <xs:element minOccurs="0" name="totalResults" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://data.diomedestorage.com" minOccurs="0" name="products" nillable="true" type="q9:ArrayOfProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseProductRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyProductsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://data.diomedestorage.com" minOccurs="0" name="products" nillable="true" type="q10:ArrayOfUserProduct" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelProductRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="productID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllContractsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://data.diomedestorage.com" minOccurs="0" name="contracts" nillable="true" type="q11:ArrayOfContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseContractRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="contractID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PurchaseContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userContractID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyContractsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMyContractsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://data.diomedestorage.com" minOccurs="0" name="contracts" nillable="true" type="q12:ArrayOfUserContract" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelContractRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userContractID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchInvoiceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q13="http://data.diomedestorage.com" minOccurs="0" name="invoiceStatus" type="q13:InvoiceStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://data.diomedestorage.com" minOccurs="0" name="invoices" nillable="true" type="q14:ArrayOfInvoiceLogEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesTotalLogRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="offset" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesTotalLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://data.diomedestorage.com" minOccurs="0" name="fileTotalInfo" nillable="true" type="q15:ArrayOfSearchFilesTotalInfo" />
+        <xs:element minOccurs="0" name="totalResults" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://data.diomedestorage.com" minOccurs="0" name="userInfo" nillable="true" type="q16:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://data.diomedestorage.com" minOccurs="0" name="userInfo" nillable="true" type="q17:UserInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserInfoRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://data.diomedestorage.com" minOccurs="0" name="userInfoType" type="q18:UserInfoType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailAddressesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="emailAddresses" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddEmailAddressRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteEmailAddressRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPrimaryEmailAddressRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPaymentLogRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchPaymentLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://data.diomedestorage.com" minOccurs="0" name="logEntries" nillable="true" type="q20:ArrayOfPaymentLogEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="currentPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="defaultNumOnline" type="xs:int" />
+        <xs:element minOccurs="0" name="defaultNumNearline" type="xs:int" />
+        <xs:element minOccurs="0" name="defaultNumOffline" type="xs:int" />
+        <xs:element minOccurs="0" name="lastAccessTriggerHours" type="xs:int" />
+        <xs:element minOccurs="0" name="lastAccessTriggerNumOnline" type="xs:int" />
+        <xs:element minOccurs="0" name="lastAccessTriggerNumNearline" type="xs:int" />
+        <xs:element minOccurs="0" name="lastAccessTriggerNumOffline" type="xs:int" />
+        <xs:element minOccurs="0" name="expireHours" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateReplicationPolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="replicationPolicyID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReplicationPoliciesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReplicationPoliciesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://data.diomedestorage.com" minOccurs="0" name="replicationPolicies" nillable="true" type="q21:ArrayOfReplicationPolicy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://data.diomedestorage.com" minOccurs="0" name="replicationPolicy" nillable="true" type="q22:ReplicationPolicy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="replicationPolicyID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="replicationPolicyID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDefaultReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="replicationPolicyID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultReplicationPolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultReplicationPolicyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://data.diomedestorage.com" minOccurs="0" name="replicationPolicy" nillable="true" type="q23:ReplicationPolicy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSecretRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSecretResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://data.diomedestorage.com" minOccurs="0" name="consumerData" nillable="true" type="q24:ConsumerData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadTokenRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="reserveBytes" type="xs:long" />
+        <xs:element minOccurs="0" name="callbackAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUploadTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uploadToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDownloadURLRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" type="xs:long" />
+        <xs:element minOccurs="0" name="maxDownloads" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="lifetimeHours" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="maxUniqueIPs" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="errorRedirect" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDownloadURLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="downloadURL" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashMD5" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashSHA1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="minSize" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="maxSize" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isDeleted" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isComplete" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="metaName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaValue" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="offset" type="xs:long" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://data.diomedestorage.com" minOccurs="0" name="matchedFiles" nillable="true" type="q25:ArrayOfFileProperties" />
+        <xs:element minOccurs="0" name="totalResults" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesTotalRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashMD5" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hashSHA1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="minSize" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="maxSize" nillable="true" type="xs:long" />
+        <xs:element minOccurs="0" name="startDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="endDate" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isComplete" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="metaName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="metaValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchFilesTotalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://data.diomedestorage.com" minOccurs="0" name="fileTotalInfo" nillable="true" type="q26:SearchFilesTotalInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

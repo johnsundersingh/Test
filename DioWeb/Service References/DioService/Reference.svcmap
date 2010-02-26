@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cd596c10-0188-4def-871a-b95a608a8dd8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://service.diomedestorage.com" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DiomedeStorageSvc.wsdl" MetadataType="Wsdl" ID="5a90b181-8c4d-40a9-99fc-775957a4a6b4" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?wsdl" />
+    <MetadataFile FileName="DiomedeStorageService.xsd" MetadataType="Schema" ID="7d4c1fbd-d004-4cf2-8091-ba3420e75084" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DiomedeStorageService.disco" MetadataType="Disco" ID="6854b14b-e6cf-4262-bca7-8d17f273e953" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?disco" />
+    <MetadataFile FileName="DiomedeStorageService1.xsd" MetadataType="Schema" ID="982e7ec4-4524-45a0-a7ac-87e1b4c7f0e0" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DiomedeStorageService2.xsd" MetadataType="Schema" ID="543d5119-5b02-4e58-af0e-7751254a96d8" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DiomedeStorageService3.xsd" MetadataType="Schema" ID="e3cf2825-46f9-4e79-a436-f86cfc926780" SourceId="1" SourceUrl="http://service.diomedestorage.com/DiomedeStorageService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

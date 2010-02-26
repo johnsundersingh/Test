@@ -1,0 +1,49 @@
+﻿.message
+{
+	display: block;
+	position: relative;
+	margin: 0 0 15px;
+	line-height: 24px;
+	font-weight: bold;
+}
+
+.message #imgMessage
+{
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+}
+
+.success
+{
+	border: 1px solid #009600;
+	color: #009600;
+	background-color: #CCFF99;
+}
+
+.success #imgMessage
+{
+	background: transparent url(../Images/Icons/msg_close_ok.png) no-repeat scroll 0 0;
+}
+
+.error
+{
+	border: 1px solid #960000;
+	color: #960000;
+	background-color: #FFBEBE;
+}
+
+.error #imgMessage
+{
+	background: transparent url(../Images/Icons/msg_close_error.png) no-repeat scroll 0 0;
+}
+
+.warning
+{
+	border: 1px solid #E6AC00;
+	color: #333333;
+	background-color: #FFEEA8;
+}
