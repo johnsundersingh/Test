@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://data.diomedestorage.com" elementFormDefault="qualified" targetNamespace="http://data.diomedestorage.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UploadWithCreateFileInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="totalLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="callbackAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="hash" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadWithCreateFileInfo" nillable="true" type="tns:UploadWithCreateFileInfo" />
+  <xs:complexType name="UploadInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="offset" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="bufferLength" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="isComplete" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UploadInfo" nillable="true" type="tns:UploadInfo" />
+</xs:schema>

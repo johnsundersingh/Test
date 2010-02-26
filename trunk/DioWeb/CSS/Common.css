@@ -1,0 +1,182 @@
+﻿html, body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font: 12px verdana, helvetica, sans-serif;
+}
+
+a:link, a:visited, a:active
+{
+	color: #f66820;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #f66820;
+	text-decoration: underline;
+}
+
+#container
+{
+	min-height: 100%;
+	position: relative;
+}
+
+/* HEADER */
+
+#header
+{
+	width: 100%;
+	margin: 0;
+	padding: 5px 10px;
+	background: #333 url(../Images/header_bg.jpg) 0 0 repeat-x;
+	color: #FFF;
+	font-family: Tahoma;
+}
+
+/* NAVIGATION */
+
+#navigation
+{
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: #333 url(../Images/nav_bg.jpg) 0 0 repeat-x;
+}
+
+#navigation ul
+{
+	float: right;
+	margin: 0;
+	padding: 0 0 0 12px;
+	list-style: none;
+	height: 35px;
+}
+
+#navigation ul li
+{
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li a:link, #navigation ul li a:visited, #navigation ul li a:active
+{
+	display: block;
+	margin: 0;
+	padding: 0 2em;
+	text-decoration: none;
+	line-height: 38px;
+	color: #d4d4d4;
+	outline: 0;
+}
+
+#navigation ul li a:hover
+{
+	display: block;
+	margin: 0;
+	padding: 0 2em;
+	text-decoration: underline;
+	line-height: 38px;
+	color: #d4d4d4;
+	background: url(../Images/nav_bg_over.jpg) 0 0 repeat-x;
+	outline: 0;
+}
+
+#navigation a:link, #navigation a:visited, #navigation a:active
+{
+	margin: 0 15px 0 0;
+	padding: 0 15px;
+	outline: 0;
+	color: #fff;
+}
+
+/* CONTENT */
+
+#content
+{
+	background: #fff url(../Images/content_bg.jpg) 0 0 repeat-x;
+	overflow: hidden;
+	text-align: center;
+	padding: 15px;
+	padding-bottom: 45px; /* Height of the footer */
+}
+
+/* FOOTER */
+
+#footer
+{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 30px; /* Height of the footer */
+	line-height: 30px;
+	background: #fff url(../Images/footer_bg.jpg) 0 0 repeat-x;
+}
+
+#footer p
+{
+	text-align: center;
+	font-size: 11px;
+	color: #ccc;
+	padding: 0;
+	margin: 0;
+}
+
+#footer a
+{
+	color: #ccc;
+}
+
+/* OTHER */
+
+h3.title
+{
+	margin-top: 0;
+}
+
+.hint
+{
+	font-size: smaller;
+}
+
+table
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table
+{
+	width: 100%;
+}
+
+.table th
+{
+	background-color: #EBEBEB;
+	height: 24px;
+}
+
+.table tr:hover td, .selected
+{
+	color: #FFF;
+	background-color: #333;
+}
+
+.table td.filename input[type~="text"]
+{
+	width: 90%;
+}
+
+.cleaner
+{
+	clear: both;
+}
+
+.invisible
+{
+	display: none;
+}
